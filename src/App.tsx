@@ -652,9 +652,7 @@ export default function EmonyLandingHybrid() {
     }
 
     function openTester() {
-        setMode("tester");
-        setDone(false);
-        setOpen(true);
+        window.location.href = "https://cash-back-kappa.vercel.app/";
     }
 
     const successCopy = useMemo(() => {
