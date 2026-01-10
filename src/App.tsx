@@ -710,7 +710,7 @@ export default function EmonyLandingHybrid() {
             <main>
                 {/* HERO */}
                 <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
-                    <div className="grid items-center gap-10 lg:grid-cols-2">
+                    <div className="mx-auto max-w-3xl text-center">
                         <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ duration: 0.35 }}>
                             <Badge className="rounded-full" variant="secondary">
                                 <span className="mr-2 inline-flex h-2 w-2 rounded-full bg-emerald-500" />
@@ -726,42 +726,6 @@ export default function EmonyLandingHybrid() {
                             </p>
 
                             <CTAButtonGroup onPrimary={openLoan} onSecondary={openTester} />
-
-                            <div className="mt-6 flex flex-wrap gap-2 text-xs text-muted-foreground">
-                                <span className="inline-flex items-center gap-2 rounded-full border px-3 py-1">
-                                    <Shield className="h-3.5 w-3.5" /> Validación segura e inmediata
-                                </span>
-                                <span className="inline-flex items-center gap-2 rounded-full border px-3 py-1">
-                                    <CreditCard className="h-3.5 w-3.5" /> Sin bancos de por medio
-                                </span>
-                                <span className="inline-flex items-center gap-2 rounded-full border px-3 py-1">
-                                    <Users className="h-3.5 w-3.5" /> MVP con +100 pruebas
-                                </span>
-                            </div>
-
-                            <div className="mt-8 grid grid-cols-3 gap-3">
-                                {stats.map((s) => (
-                                    <Card key={s.label} className="rounded-2xl">
-                                        <CardContent className="p-4">
-                                            <div className="flex items-center gap-2">
-                                                <s.icon className="h-4 w-4 text-muted-foreground" />
-                                                <p className="text-xs text-muted-foreground">{s.label}</p>
-                                            </div>
-                                            <p className="mt-2 text-lg font-semibold">{s.value}</p>
-                                        </CardContent>
-                                    </Card>
-                                ))}
-                            </div>
-                        </motion.div>
-
-                        <motion.div
-                            initial="hidden"
-                            animate="visible"
-                            variants={fadeUp}
-                            transition={{ duration: 0.35, delay: 0.08 }}
-                            className="lg:justify-self-end"
-                        >
-                            <MockPhone />
                         </motion.div>
                     </div>
                 </section>
