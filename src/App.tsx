@@ -17,7 +17,10 @@ import {
     Building2,
     Map,
     MessageSquareText,
+    Menu,
+    CheckCircle2,
 } from "lucide-react";
+import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -109,78 +112,124 @@ function Modal({ open, onClose, children }: any) {
 
 function MockPhone() {
     return (
-        <div className="relative mx-auto w-[340px] max-w-full">
-            <div className="absolute -inset-6 -z-10 rounded-[36px] bg-gradient-to-b from-indigo-500/15 via-emerald-500/10 to-transparent blur-2xl" />
-            <div className="rounded-[34px] border bg-background shadow-[0_20px_80px_-30px_rgba(0,0,0,0.35)]">
-                <div className="flex items-center justify-between px-5 pt-4">
-                    <div className="flex items-center gap-2">
-                        <div className="h-9 w-9 rounded-xl bg-indigo-600/10 grid place-items-center">
-                            <Sparkles className="h-5 w-5 text-indigo-600" />
-                        </div>
-                        <div>
-                            <p className="text-sm font-semibold leading-4">Emony</p>
-                            <p className="text-xs text-muted-foreground">P2P · simple y seguro</p>
-                        </div>
+        <div className="relative mx-auto w-[320px] max-w-full">
+            <div className="absolute -inset-4 -z-10 rounded-[48px] bg-gradient-to-b from-brand/20 via-brand-light/20 to-transparent blur-2xl" />
+
+            {/* Phone Frame */}
+            <div className="relative overflow-hidden rounded-[40px] border-[6px] border-zinc-900 bg-zinc-950 shadow-2xl">
+                {/* Status Bar */}
+                <div className="flex h-7 items-center justify-between px-6 pb-2 pt-3 text-[10px] font-medium text-white">
+                    <span>9:27</span>
+                    <div className="flex items-center gap-1.5">
+                        <div className="h-2.5 w-4 rounded-[3px] bg-white" />
+                        <div className="h-2.5 w-[2px] bg-white" />
+                        <div className="h-2.5 w-[10px] border border-white" />
                     </div>
-                    <Badge variant="secondary" className="rounded-full">
-                        100% digital
-                    </Badge>
                 </div>
 
-                <div className="px-5 pt-4 pb-5">
-                    <div className="rounded-2xl border bg-muted/30 p-4">
-                        <p className="text-xs text-muted-foreground">Solicitud rápida</p>
-                        <p className="mt-1 text-xl font-semibold">S/ 500 · 30 días</p>
-                        <div className="mt-3 grid grid-cols-3 gap-2">
-                            <div className="rounded-xl bg-background border p-3">
-                                <p className="text-[11px] text-muted-foreground">Paso 1</p>
-                                <p className="mt-1 text-sm font-semibold">Solicita</p>
+                {/* Dynamic Island */}
+                <div className="absolute left-1/2 top-3 h-6 w-24 -translate-x-1/2 rounded-full bg-black" />
+
+                {/* App Header */}
+                <div className="bg-brand px-6 pb-6 pt-6 text-center text-white">
+                    <div className="flex items-center justify-center pt-2">
+                        <div className="relative flex items-center">
+                            <span className="text-3xl font-bold tracking-tighter">e</span>
+                            <span className="relative">
+                                <span className="text-3xl font-bold tracking-tighter">m</span>
+                                <span className="absolute -top-1.5 left-0.5 h-2 w-2 rounded-full bg-brand-yellow" />
+                                <span className="absolute -top-0.5 right-0.5 h-2.5 w-2.5 rounded-full bg-brand-yellow" />
+                            </span>
+                            <span className="text-3xl font-bold tracking-tighter">ony</span>
+                        </div>
+                    </div>
+                </div>
+
+                {/* White Content Area */}
+                <div className="relative -mt-4 min-h-[500px] rounded-t-[2.5rem] bg-gray-50 px-5 pt-8">
+
+                    {/* User Card */}
+                    <div className="rounded-3xl bg-white p-4 shadow-sm">
+                        <div className="flex items-center gap-4">
+                            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-yellow">
+                                <Users className="h-6 w-6 text-white" />
                             </div>
-                            <div className="rounded-xl bg-background border p-3">
-                                <p className="text-[11px] text-muted-foreground">Paso 2</p>
-                                <p className="mt-1 text-sm font-semibold">Conecta</p>
+                            <div>
+                                <p className="text-xs font-medium text-muted-foreground">Hola</p>
+                                <p className="text-sm font-bold text-brand">Nombre Apellido</p>
+                                <div className="flex text-orange-400">
+                                    {[1, 2, 3, 4, 5].map((i) => (
+                                        <Sparkles key={i} className="h-3 w-3 fill-current" />
+                                    ))}
+                                </div>
                             </div>
-                            <div className="rounded-xl bg-background border p-3">
-                                <p className="text-[11px] text-muted-foreground">Paso 3</p>
-                                <p className="mt-1 text-sm font-semibold">Recibe</p>
+                            <div className="ml-auto">
+                                <div className="h-8 w-8 rounded-full border border-gray-100 bg-gray-50 p-1.5 text-gray-400">
+                                    <Shield className="h-full w-full" />
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div className="mt-4 grid gap-3">
-                        <div className="rounded-2xl border bg-background p-4">
-                            <div className="flex items-center justify-between">
-                                <p className="text-sm font-semibold">Validación</p>
-                                <p className="text-xs text-muted-foreground">Inmediata</p>
+                    {/* Solicitar Section */}
+                    <div className="mt-6">
+                        <h4 className="mb-4 text-center text-sm font-bold text-brand">Solicitar préstamo</h4>
+
+                        <div className="grid gap-3">
+                            <div className="grid grid-cols-2 gap-3">
+                                <div className="flex items-center justify-between overflow-hidden rounded-xl bg-white p-0 shadow-sm">
+                                    <span className="pl-4 text-sm font-bold text-brand">S/.100.00</span>
+                                    <div className="flex h-12 w-8 items-center justify-center bg-brand-light text-brand">
+                                        <span className="-rotate-90 text-[10px] font-bold">Solicitar</span>
+                                    </div>
+                                </div>
+                                <div className="flex items-center justify-between overflow-hidden rounded-xl bg-white p-0 shadow-sm">
+                                    <span className="pl-4 text-sm font-bold text-brand">S/.200.00</span>
+                                    <div className="flex h-12 w-8 items-center justify-center bg-brand-light text-brand">
+                                        <span className="-rotate-90 text-[10px] font-bold">Solicitar</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="mt-3 grid gap-2">
-                                <div className="flex items-center gap-2 text-sm">
-                                    <span className="h-2.5 w-2.5 rounded-full bg-emerald-500" />
-                                    <span>Identidad verificada</span>
+                            <div className="grid grid-cols-2 gap-3">
+                                <div className="flex items-center justify-between overflow-hidden rounded-xl bg-white p-0 shadow-sm">
+                                    <span className="pl-4 text-sm font-bold text-brand">S/.500.00</span>
+                                    <div className="flex h-12 w-8 items-center justify-center bg-brand-light text-brand">
+                                        <span className="-rotate-90 text-[10px] font-bold">Solicitar</span>
+                                    </div>
                                 </div>
-                                <div className="flex items-center gap-2 text-sm">
-                                    <span className="h-2.5 w-2.5 rounded-full bg-indigo-500" />
-                                    <span>Reglas claras</span>
-                                </div>
-                                <div className="flex items-center gap-2 text-sm">
-                                    <span className="h-2.5 w-2.5 rounded-full bg-muted-foreground/40" />
-                                    <span className="text-muted-foreground">Sin bancos de por medio</span>
+                                <div className="flex items-center justify-between overflow-hidden rounded-xl bg-white p-0 shadow-sm">
+                                    <span className="pl-4 text-[10px] font-medium text-muted-foreground">Escribe aquí</span>
+                                    <div className="flex h-12 w-8 items-center justify-center bg-brand-light text-brand">
+                                        <span className="-rotate-90 text-[10px] font-bold">Solicitar</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div className="rounded-2xl border bg-gradient-to-r from-indigo-600 to-emerald-500 p-[1px]">
-                            <div className="rounded-2xl bg-background p-4">
-                                <div className="flex items-center justify-between">
-                                    <p className="text-sm font-semibold">MVP validado</p>
-                                    <Badge className="rounded-full" variant="secondary">
-                                        <Users className="mr-1 h-3 w-3" /> +100 testers
-                                    </Badge>
-                                </div>
-                                <p className="mt-1 text-xs text-muted-foreground">
-                                    Feedback activo sobre usabilidad, confianza y flujo P2P.
-                                </p>
+                    {/* Prestar Section */}
+                    <div className="mt-8">
+                        <h4 className="mb-4 text-center text-sm font-bold text-brand">Ofertas para prestar</h4>
+                        <div className="flex items-center justify-between overflow-hidden rounded-2xl bg-white pl-6 shadow-sm">
+                            <span className="text-xl font-black text-brand">S/.250.00</span>
+                            <div className="flex h-16 w-16 items-center justify-center bg-brand-yellow text-brand">
+                                <span className="-rotate-90 text-xs font-bold">Enviar</span>
                             </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                {/* Bottom Sheet Teaser */}
+                <div className="absolute bottom-0 left-0 right-0 rounded-t-[2rem] bg-brand px-6 pb-2 pt-4">
+                    <div className="mb-2 flex items-center justify-between text-white">
+                        <div>
+                            <p className="text-xs font-medium opacity-80">Monto</p>
+                            <p className="text-lg font-bold">S/. 250.00</p>
+                        </div>
+                        <div className="text-right">
+                            <p className="text-[10px] opacity-80">Próximo pago: <span className="font-bold text-white">10 de mayo</span></p>
+                            <Badge className="mt-1 bg-brand-yellow text-brand hover:bg-brand-yellow">Pagar</Badge>
                         </div>
                     </div>
                 </div>
@@ -652,7 +701,7 @@ export default function EmonyLandingHybrid() {
     }
 
     function openTester() {
-        window.location.href = "https://cash-back-kappa.vercel.app/";
+        window.location.href = "https://app.emony.info/";
     }
 
     const successCopy = useMemo(() => {
@@ -677,31 +726,40 @@ export default function EmonyLandingHybrid() {
             </div>
 
             {/* Header */}
-            <header className="sticky top-0 z-40 border-b bg-background/80 backdrop-blur">
-                <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-                    <div className="flex items-center gap-3">
-                        <div className="h-9 w-9 rounded-xl bg-indigo-600/10 grid place-items-center">
-                            <Sparkles className="h-5 w-5 text-indigo-600" />
-                        </div>
-                        <div>
-                            <p className="text-sm font-semibold leading-4">Emony</p>
-                            <p className="text-xs text-muted-foreground">Créditos P2P · simples y seguros</p>
+            <header className="sticky top-0 z-40 bg-brand text-white shadow-lg transition-all duration-300">
+                <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6">
+                    {/* Logo Area */}
+                    <div className="flex items-center gap-2">
+                        <div className="relative flex items-center">
+                            <span className="text-3xl font-bold tracking-tight text-white">e</span>
+                            <span className="relative">
+                                <span className="text-3xl font-bold tracking-tight text-white">m</span>
+                                {/* Stylized 'people' circles above 'm' to mimic logo */}
+                                <span className="absolute -top-2 left-0 h-2.5 w-2.5 rounded-full bg-brand-yellow" />
+                                <span className="absolute -top-1 right-0 h-3 w-3 rounded-full bg-brand-yellow" />
+                            </span>
+                            <span className="text-3xl font-bold tracking-tight text-white">ony</span>
                         </div>
                     </div>
 
-                    <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
-                        <a className="hover:text-foreground transition" href="#problema">Problema</a>
-                        <a className="hover:text-foreground transition" href="#como">Cómo funciona</a>
-                        <a className="hover:text-foreground transition" href="#confianza">Confianza</a>
-                        <a className="hover:text-foreground transition" href="#modelo">Modelo</a>
+                    {/* Desktop Nav */}
+                    <nav className="hidden items-center gap-8 text-sm font-medium text-brand-text md:flex">
+                        <a className="hover:text-white transition-colors" href="#problema">Problema</a>
+                        <a className="hover:text-white transition-colors" href="#como">Cómo funciona</a>
+                        <a className="hover:text-white transition-colors" href="#confianza">Confianza</a>
+                        <a className="hover:text-white transition-colors" href="#modelo">Modelo</a>
                     </nav>
 
-                    <div className="flex items-center gap-2">
-                        <Badge variant="secondary" className="hidden rounded-full sm:inline-flex">
-                            Cupos por etapas
-                        </Badge>
-                        <Button onClick={openLoan} className="rounded-full">
-                            Solicitar <ArrowRight className="ml-2 h-4 w-4" />
+                    {/* CTA */}
+                    <div className="flex items-center gap-4">
+                        <Button
+                            onClick={openTester}
+                            className="hidden rounded-full bg-brand-light px-6 font-semibold text-brand hover:bg-brand-light/90 sm:inline-flex"
+                        >
+                            Unirme al user testing
+                        </Button>
+                        <Button variant="ghost" size="icon" className="text-white md:hidden">
+                            <Menu className="h-6 w-6" />
                         </Button>
                     </div>
                 </div>
@@ -709,80 +767,140 @@ export default function EmonyLandingHybrid() {
 
             <main>
                 {/* HERO */}
-                <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
-                    <div className="mx-auto max-w-3xl text-center">
-                        <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ duration: 0.35 }}>
-                            <Badge className="rounded-full" variant="secondary">
-                                <span className="mr-2 inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-                                100% digital · sin bancos
-                            </Badge>
-
-                            <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
-                                Créditos entre personas, <span className="text-indigo-600">simples</span> y <span className="text-emerald-600">seguros</span>
+                {/* HERO */}
+                <section className="relative mx-auto max-w-7xl overflow-hidden px-4 py-12 sm:px-6 lg:py-20">
+                    <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+                        {/* Text Column */}
+                        <motion.div
+                            initial="hidden"
+                            animate="visible"
+                            variants={fadeUp}
+                            transition={{ duration: 0.5 }}
+                            className="max-w-2xl text-center lg:text-left"
+                        >
+                            <h1 className="text-5xl font-bold tracking-tight text-brand sm:text-6xl lg:text-7xl">
+                                Créditos entre personas, <span className="text-brand-light">simples</span> y <span className="text-brand-light">seguros</span>
                             </h1>
-                            <p className="mt-4 text-base text-muted-foreground sm:text-lg">
-                                Más del 60% de peruanos no accede a crédito formal y el resto enfrenta burocracia y altos costos.
-                                Emony conecta personas para prestarse entre sí: rápido, claro y con validación segura.
+                            <p className="mt-6 text-lg text-muted-foreground sm:text-xl">
+                                Plataforma fintech P2P que conecta personas para prestar y recibir dinero de forma digital, segura y eficiente.
                             </p>
 
-                            <CTAButtonGroup onPrimary={openLoan} onSecondary={openTester} />
+                            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
+                                <Button
+                                    onClick={openLoan}
+                                    size="lg"
+                                    className="h-14 rounded-full bg-brand-light px-8 text-lg font-semibold text-brand hover:bg-brand-light/90"
+                                >
+                                    Explora Emony
+                                </Button>
+                            </div>
+                        </motion.div>
+
+                        {/* Image Column */}
+                        <motion.div
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            className="relative mx-auto w-full max-w-[320px] lg:max-w-[400px]"
+                        >
+                            <MockPhone />
                         </motion.div>
                     </div>
                 </section>
 
                 {/* PROBLEMA / SOLUCIÓN */}
-                <section id="problema" className="border-t bg-muted/20">
-                    <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
-                        <div className="grid gap-4 lg:grid-cols-2">
-                            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp} transition={{ duration: 0.3 }}>
-                                <Card className="h-full rounded-3xl">
-                                    <CardHeader>
-                                        <CardTitle className="text-base">Problema</CardTitle>
-                                    </CardHeader>
-                                    <CardContent className="text-sm text-muted-foreground">
-                                        <p className="leading-relaxed">
-                                            Más del <span className="font-semibold text-foreground">60%</span> de los peruanos no accede a crédito formal,
-                                            y quienes sí lo hacen enfrentan procesos burocráticos y altos costos.
-                                        </p>
-                                        <div className="mt-4 grid gap-2">
-                                            {["Procesos lentos", "Altas comisiones", "Poca claridad"].map((t) => (
-                                                <div key={t} className="flex items-center gap-2">
-                                                    <span className="h-2.5 w-2.5 rounded-full bg-muted-foreground/40" />
-                                                    <span>{t}</span>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </CardContent>
-                                </Card>
+                <section id="problema" className="bg-muted/30 py-16 sm:py-24">
+                    <div className="mx-auto max-w-7xl px-4 sm:px-6">
+                        <div className="grid gap-8 lg:grid-cols-2">
+                            {/* Problem Card */}
+                            <motion.div
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                variants={fadeUp}
+                                className="relative overflow-hidden rounded-[2.5rem] bg-brand p-8 text-white shadow-xl sm:p-12"
+                            >
+                                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-white">Problema</h2>
+
+                                <div className="mt-8 flex flex-col items-center gap-8 sm:flex-row">
+                                    {/* Pie Chart Visualization */}
+                                    <div className="h-40 w-40 shrink-0 relative">
+                                        <ResponsiveContainer width="100%" height="100%">
+                                            <PieChart>
+                                                <Pie
+                                                    data={[{ value: 60 }, { value: 40 }]}
+                                                    innerRadius={40}
+                                                    outerRadius={70}
+                                                    paddingAngle={0}
+                                                    dataKey="value"
+                                                    stroke="none"
+                                                >
+                                                    <Cell fill="#89C7CE" /> {/* Brand Light */}
+                                                    <Cell fill="#F2E980" /> {/* Brand Yellow */}
+                                                </Pie>
+                                            </PieChart>
+                                        </ResponsiveContainer>
+                                        {/* Floating piece styled via CSS/SVG logically or just implied */}
+                                    </div>
+
+                                    <p className="text-lg font-medium leading-relaxed text-brand-text">
+                                        Más del <span className="font-bold text-brand-yellow">60% de los peruanos</span> no accede a crédito formal,
+                                        y quienes sí lo hacen enfrentan procesos burocráticos y altos costos.
+                                    </p>
+                                </div>
                             </motion.div>
 
-                            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp} transition={{ duration: 0.3, delay: 0.04 }}>
-                                <Card className="h-full rounded-3xl">
-                                    <CardHeader>
-                                        <CardTitle className="text-base">Solución</CardTitle>
-                                    </CardHeader>
-                                    <CardContent className="text-sm text-muted-foreground">
-                                        <p className="leading-relaxed">
-                                            Plataforma que conecta personas para prestarse entre sí:
-                                            <span className="font-semibold text-foreground"> 100% digital</span>,
-                                            <span className="font-semibold text-foreground"> sin bancos</span>,
-                                            con <span className="font-semibold text-foreground">validación segura e inmediata</span>.
+                            {/* Solution Card */}
+                            <motion.div
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                variants={fadeUp}
+                                transition={{ delay: 0.1 }}
+                                className="relative overflow-hidden rounded-[2.5rem] bg-brand-light p-8 text-brand shadow-xl sm:p-12"
+                            >
+                                <div className="grid gap-8 sm:grid-cols-2 items-center">
+                                    <div>
+                                        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Solución</h2>
+                                        <p className="mt-4 text-lg font-medium">
+                                            Plataforma que conecta <span className="font-bold">personas</span> para prestarse entre sí:
                                         </p>
-                                        <div className="mt-4 grid gap-2">
-                                            {["Rápida y simple", "Reglas claras", "Enfocada en confianza"].map((t) => (
-                                                <div key={t} className="flex items-center gap-2">
-                                                    <Check className="h-4 w-4 text-emerald-600" />
-                                                    <span>{t}</span>
-                                                </div>
+
+                                        <ul className="mt-6 space-y-3">
+                                            {["100% digital y rápida.", "Sin bancos de por medio.", "Validación segura e inmediata."].map((item) => (
+                                                <li key={item} className="flex items-center gap-3">
+                                                    <div className="flex h-6 w-6 items-center justify-center rounded-full bg-brand text-white">
+                                                        <Check className="h-3.5 w-3.5" />
+                                                    </div>
+                                                    <span className="font-medium">{item}</span>
+                                                </li>
                                             ))}
-                                        </div>
-                                        <div className="mt-6">
-                                            <Button onClick={openLoan} className="rounded-full">
-                                                Solicitar ahora <ArrowRight className="ml-2 h-4 w-4" />
+                                        </ul>
+
+                                        <div className="mt-8">
+                                            <Button onClick={openLoan} className="rounded-full bg-brand px-6 py-6 text-white hover:bg-brand/90">
+                                                Comenzar ahora
                                             </Button>
                                         </div>
-                                    </CardContent>
-                                </Card>
+                                    </div>
+
+                                    {/* Phone Mock for Solution Side */}
+                                    <div className="relative mx-auto w-[240px] hidden sm:block">
+                                        {/* Simplified Mini Phone */}
+                                        <div className="rounded-[2rem] border-4 border-white bg-white shadow-2xl overflow-hidden">
+                                            <div className="h-full bg-gray-50 p-3">
+                                                <div className="space-y-2">
+                                                    <div className="h-2 w-12 rounded-full bg-gray-200 mx-auto mb-4" />
+                                                    <div className="h-8 rounded-xl bg-brand/10 w-full" />
+                                                    <div className="space-y-1">
+                                                        <div className="h-2 rounded-full bg-gray-200 w-3/4" />
+                                                        <div className="h-2 rounded-full bg-gray-200 w-1/2" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </motion.div>
                         </div>
                     </div>

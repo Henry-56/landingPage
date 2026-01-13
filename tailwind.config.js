@@ -18,6 +18,12 @@ export default {
         },
         extend: {
             colors: {
+                brand: {
+                    DEFAULT: "#0B3B4B", // Deep Teal Background
+                    light: "#89C7CE",   // Cyan/Teal Buttons
+                    yellow: "#F2E980",  // Logo accents
+                    text: "#B0C4C7",    // Muted text on dark
+                },
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
                 ring: "hsl(var(--ring))",
