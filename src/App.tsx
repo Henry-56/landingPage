@@ -114,126 +114,11 @@ function MockPhone() {
     return (
         <div className="relative mx-auto w-[320px] max-w-full">
             <div className="absolute -inset-4 -z-10 rounded-[48px] bg-gradient-to-b from-brand/20 via-brand-light/20 to-transparent blur-2xl" />
-
-            {/* Phone Frame */}
-            <div className="relative overflow-hidden rounded-[40px] border-[6px] border-zinc-900 bg-zinc-950 shadow-2xl">
-                {/* Status Bar */}
-                <div className="flex h-7 items-center justify-between px-6 pb-2 pt-3 text-[10px] font-medium text-white">
-                    <span>9:27</span>
-                    <div className="flex items-center gap-1.5">
-                        <div className="h-2.5 w-4 rounded-[3px] bg-white" />
-                        <div className="h-2.5 w-[2px] bg-white" />
-                        <div className="h-2.5 w-[10px] border border-white" />
-                    </div>
-                </div>
-
-                {/* Dynamic Island */}
-                <div className="absolute left-1/2 top-3 h-6 w-24 -translate-x-1/2 rounded-full bg-black" />
-
-                {/* App Header */}
-                <div className="bg-brand px-6 pb-6 pt-6 text-center text-white">
-                    <div className="flex items-center justify-center pt-2">
-                        <div className="relative flex items-center">
-                            <span className="text-3xl font-bold tracking-tighter">e</span>
-                            <span className="relative">
-                                <span className="text-3xl font-bold tracking-tighter">m</span>
-                                <span className="absolute -top-1.5 left-0.5 h-2 w-2 rounded-full bg-brand-yellow" />
-                                <span className="absolute -top-0.5 right-0.5 h-2.5 w-2.5 rounded-full bg-brand-yellow" />
-                            </span>
-                            <span className="text-3xl font-bold tracking-tighter">ony</span>
-                        </div>
-                    </div>
-                </div>
-
-                {/* White Content Area */}
-                <div className="relative -mt-4 min-h-[500px] rounded-t-[2.5rem] bg-gray-50 px-5 pt-8">
-
-                    {/* User Card */}
-                    <div className="rounded-3xl bg-white p-4 shadow-sm">
-                        <div className="flex items-center gap-4">
-                            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-yellow">
-                                <Users className="h-6 w-6 text-white" />
-                            </div>
-                            <div>
-                                <p className="text-xs font-medium text-muted-foreground">Hola</p>
-                                <p className="text-sm font-bold text-brand">Nombre Apellido</p>
-                                <div className="flex text-orange-400">
-                                    {[1, 2, 3, 4, 5].map((i) => (
-                                        <Sparkles key={i} className="h-3 w-3 fill-current" />
-                                    ))}
-                                </div>
-                            </div>
-                            <div className="ml-auto">
-                                <div className="h-8 w-8 rounded-full border border-gray-100 bg-gray-50 p-1.5 text-gray-400">
-                                    <Shield className="h-full w-full" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Solicitar Section */}
-                    <div className="mt-6">
-                        <h4 className="mb-4 text-center text-sm font-bold text-brand">Solicitar préstamo</h4>
-
-                        <div className="grid gap-3">
-                            <div className="grid grid-cols-2 gap-3">
-                                <div className="flex items-center justify-between overflow-hidden rounded-xl bg-white p-0 shadow-sm">
-                                    <span className="pl-4 text-sm font-bold text-brand">S/.100.00</span>
-                                    <div className="flex h-12 w-8 items-center justify-center bg-brand-light text-brand">
-                                        <span className="-rotate-90 text-[10px] font-bold">Solicitar</span>
-                                    </div>
-                                </div>
-                                <div className="flex items-center justify-between overflow-hidden rounded-xl bg-white p-0 shadow-sm">
-                                    <span className="pl-4 text-sm font-bold text-brand">S/.200.00</span>
-                                    <div className="flex h-12 w-8 items-center justify-center bg-brand-light text-brand">
-                                        <span className="-rotate-90 text-[10px] font-bold">Solicitar</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="grid grid-cols-2 gap-3">
-                                <div className="flex items-center justify-between overflow-hidden rounded-xl bg-white p-0 shadow-sm">
-                                    <span className="pl-4 text-sm font-bold text-brand">S/.500.00</span>
-                                    <div className="flex h-12 w-8 items-center justify-center bg-brand-light text-brand">
-                                        <span className="-rotate-90 text-[10px] font-bold">Solicitar</span>
-                                    </div>
-                                </div>
-                                <div className="flex items-center justify-between overflow-hidden rounded-xl bg-white p-0 shadow-sm">
-                                    <span className="pl-4 text-[10px] font-medium text-muted-foreground">Escribe aquí</span>
-                                    <div className="flex h-12 w-8 items-center justify-center bg-brand-light text-brand">
-                                        <span className="-rotate-90 text-[10px] font-bold">Solicitar</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Prestar Section */}
-                    <div className="mt-8">
-                        <h4 className="mb-4 text-center text-sm font-bold text-brand">Ofertas para prestar</h4>
-                        <div className="flex items-center justify-between overflow-hidden rounded-2xl bg-white pl-6 shadow-sm">
-                            <span className="text-xl font-black text-brand">S/.250.00</span>
-                            <div className="flex h-16 w-16 items-center justify-center bg-brand-yellow text-brand">
-                                <span className="-rotate-90 text-xs font-bold">Enviar</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                {/* Bottom Sheet Teaser */}
-                <div className="absolute bottom-0 left-0 right-0 rounded-t-[2rem] bg-brand px-6 pb-2 pt-4">
-                    <div className="mb-2 flex items-center justify-between text-white">
-                        <div>
-                            <p className="text-xs font-medium opacity-80">Monto</p>
-                            <p className="text-lg font-bold">S/. 250.00</p>
-                        </div>
-                        <div className="text-right">
-                            <p className="text-[10px] opacity-80">Próximo pago: <span className="font-bold text-white">10 de mayo</span></p>
-                            <Badge className="mt-1 bg-brand-yellow text-brand hover:bg-brand-yellow">Pagar</Badge>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <img
+                src="/phone-hero.png"
+                alt="Emony App Interface"
+                className="relative block w-full drop-shadow-2xl"
+            />
         </div>
     );
 }
@@ -695,13 +580,13 @@ export default function EmonyLandingHybrid() {
     ];
 
     function openLoan() {
-        setMode("loan");
-        setDone(false);
-        setOpen(true);
+        window.location.href = "https://app.emony.info/";
     }
 
     function openTester() {
-        window.location.href = "https://app.emony.info/";
+        setMode("tester");
+        setDone(false);
+        setOpen(true);
     }
 
     const successCopy = useMemo(() => {
@@ -730,16 +615,7 @@ export default function EmonyLandingHybrid() {
                 <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6">
                     {/* Logo Area */}
                     <div className="flex items-center gap-2">
-                        <div className="relative flex items-center">
-                            <span className="text-3xl font-bold tracking-tight text-white">e</span>
-                            <span className="relative">
-                                <span className="text-3xl font-bold tracking-tight text-white">m</span>
-                                {/* Stylized 'people' circles above 'm' to mimic logo */}
-                                <span className="absolute -top-2 left-0 h-2.5 w-2.5 rounded-full bg-brand-yellow" />
-                                <span className="absolute -top-1 right-0 h-3 w-3 rounded-full bg-brand-yellow" />
-                            </span>
-                            <span className="text-3xl font-bold tracking-tight text-white">ony</span>
-                        </div>
+                        <img src="/logo.png" alt="Emony Logo" className="h-12 w-auto object-contain" />
                     </div>
 
                     {/* Desktop Nav */}
@@ -812,41 +688,33 @@ export default function EmonyLandingHybrid() {
                 <section id="problema" className="bg-muted/30 py-16 sm:py-24">
                     <div className="mx-auto max-w-7xl px-4 sm:px-6">
                         <div className="grid gap-8 lg:grid-cols-2">
+
+
                             {/* Problem Card */}
                             <motion.div
                                 initial="hidden"
                                 whileInView="visible"
                                 viewport={{ once: true }}
                                 variants={fadeUp}
-                                className="relative overflow-hidden rounded-[2.5rem] bg-brand p-8 text-white shadow-xl sm:p-12"
+                                className="relative flex flex-col justify-between overflow-hidden rounded-[2.5rem] bg-gray-100 p-8 shadow-xl sm:p-12"
                             >
-                                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-white">Problema</h2>
+                                <h2 className="mb-6 text-3xl font-bold tracking-tight sm:text-4xl text-brand">Problema</h2>
 
-                                <div className="mt-8 flex flex-col items-center gap-8 sm:flex-row">
-                                    {/* Pie Chart Visualization */}
-                                    <div className="h-40 w-40 shrink-0 relative">
-                                        <ResponsiveContainer width="100%" height="100%">
-                                            <PieChart>
-                                                <Pie
-                                                    data={[{ value: 60 }, { value: 40 }]}
-                                                    innerRadius={40}
-                                                    outerRadius={70}
-                                                    paddingAngle={0}
-                                                    dataKey="value"
-                                                    stroke="none"
-                                                >
-                                                    <Cell fill="#89C7CE" /> {/* Brand Light */}
-                                                    <Cell fill="#F2E980" /> {/* Brand Yellow */}
-                                                </Pie>
-                                            </PieChart>
-                                        </ResponsiveContainer>
-                                        {/* Floating piece styled via CSS/SVG logically or just implied */}
+                                <div className="flex flex-1 items-center justify-center rounded-3xl bg-brand p-8 text-white shadow-lg relative">
+                                    <div className="flex flex-col items-center gap-6 sm:flex-row sm:text-left relative z-10">
+                                        <div className="h-32 w-32 shrink-0 relative drop-shadow-2xl">
+                                            {/* Simplified 3D Pie Chart illustration */}
+                                            <div className="absolute inset-0 rounded-full bg-brand-light shadow-[4px_4px_0px_#06232d]" />
+                                            <div className="absolute inset-0 rotate-[30deg]">
+                                                <svg viewBox="0 0 100 100" className="h-full w-full overflow-visible">
+                                                    <path d="M50 50 L50 0 A50 50 0 0 1 85 14 z" fill="#F2E980" stroke="none" className="drop-shadow-sm" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <p className="text-lg font-medium leading-relaxed">
+                                            Más del <span className="font-bold text-brand-yellow">60% de los peruanos</span> <span className="text-white/80">no accede a crédito formal, y quienes sí lo hacen enfrentan procesos burocráticos y altos costos.</span>
+                                        </p>
                                     </div>
-
-                                    <p className="text-lg font-medium leading-relaxed text-brand-text">
-                                        Más del <span className="font-bold text-brand-yellow">60% de los peruanos</span> no accede a crédito formal,
-                                        y quienes sí lo hacen enfrentan procesos burocráticos y altos costos.
-                                    </p>
                                 </div>
                             </motion.div>
 
@@ -857,48 +725,34 @@ export default function EmonyLandingHybrid() {
                                 viewport={{ once: true }}
                                 variants={fadeUp}
                                 transition={{ delay: 0.1 }}
-                                className="relative overflow-hidden rounded-[2.5rem] bg-brand-light p-8 text-brand shadow-xl sm:p-12"
+                                className="relative flex flex-col overflow-hidden rounded-[2.5rem] bg-brand-light p-8 text-brand shadow-xl sm:p-12"
                             >
-                                <div className="grid gap-8 sm:grid-cols-2 items-center">
+                                <div className="grid h-full gap-8 sm:grid-cols-2 items-center">
                                     <div>
                                         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Solución</h2>
-                                        <p className="mt-4 text-lg font-medium">
-                                            Plataforma que conecta <span className="font-bold">personas</span> para prestarse entre sí:
+                                        <p className="mt-4 text-lg font-medium leading-tight">
+                                            Plataforma que conecta personas para prestarse entre sí:
                                         </p>
 
                                         <ul className="mt-6 space-y-3">
                                             {["100% digital y rápida.", "Sin bancos de por medio.", "Validación segura e inmediata."].map((item) => (
                                                 <li key={item} className="flex items-center gap-3">
-                                                    <div className="flex h-6 w-6 items-center justify-center rounded-full bg-brand text-white">
+                                                    <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#4ADE80] text-white">
                                                         <Check className="h-3.5 w-3.5" />
                                                     </div>
                                                     <span className="font-medium">{item}</span>
                                                 </li>
                                             ))}
                                         </ul>
-
-                                        <div className="mt-8">
-                                            <Button onClick={openLoan} className="rounded-full bg-brand px-6 py-6 text-white hover:bg-brand/90">
-                                                Comenzar ahora
-                                            </Button>
-                                        </div>
                                     </div>
 
-                                    {/* Phone Mock for Solution Side */}
-                                    <div className="relative mx-auto w-[240px] hidden sm:block">
-                                        {/* Simplified Mini Phone */}
-                                        <div className="rounded-[2rem] border-4 border-white bg-white shadow-2xl overflow-hidden">
-                                            <div className="h-full bg-gray-50 p-3">
-                                                <div className="space-y-2">
-                                                    <div className="h-2 w-12 rounded-full bg-gray-200 mx-auto mb-4" />
-                                                    <div className="h-8 rounded-xl bg-brand/10 w-full" />
-                                                    <div className="space-y-1">
-                                                        <div className="h-2 rounded-full bg-gray-200 w-3/4" />
-                                                        <div className="h-2 rounded-full bg-gray-200 w-1/2" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    {/* Success Phone Mock */}
+                                    <div className="relative mx-auto w-[180px]">
+                                        <img
+                                            src="/phone-solution.png"
+                                            alt="Solicitud enviada con éxito"
+                                            className="relative block w-full drop-shadow-2xl"
+                                        />
                                     </div>
                                 </div>
                             </motion.div>
