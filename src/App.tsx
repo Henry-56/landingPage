@@ -199,6 +199,13 @@ export default function EMonyPage() {
           </div>
         </div>
       </div>
+
+      {/* Banner en construcción */}
+      <div className="text-center py-6">
+        <p className="text-white/60 text-sm md:text-base">
+          Estamos en etapa de construcción — pronto habrá mucho más por descubrir
+        </p>
+      </div>
     </div>
   );
 }
