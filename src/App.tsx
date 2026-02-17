@@ -1,4 +1,5 @@
 import { useState } from "react";
+import FeaturesSection from "./components/FeaturesSection";
 
 const LOGO_SRC = "/logo-emony.png";
 const HERO_GIF_SRC = "/hero-characters.gif";
@@ -199,6 +200,9 @@ export default function EMonyPage() {
           </div>
         </div>
       </div>
+
+      {/* Features and Partners Section */}
+      <FeaturesSection />
 
       {/* Banner en construcción */}
       <div className="text-center py-6">
